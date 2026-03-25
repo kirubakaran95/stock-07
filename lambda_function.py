@@ -69,14 +69,14 @@ def stock_csv():
 
         combined_df = pd.concat(dataframes, ignore_index=True)
 
-        # # STEP 7 — Aggregation by Sector
-        # result = merged_df.groupby("Sector").agg({
-        #     "open": "mean",
-        #     "close": "mean",
-        #     "high": "max",
-        #     "low": "min",
-        #     "volume": "mean"
-        # }).reset_index()
+        # STEP 7 — Aggregation by Sector
+        result = merged_df.groupby("Sector").agg({
+            "open": "mean",
+            "close": "mean",
+            "high": "max",
+            "low": "min",
+            "volume": "mean"
+        }).reset_index()
 
             # STEP 6 — Merge with sector info
         merged_df = pd.merge(combined_df, sector_df, on="Symbol", how="left")
